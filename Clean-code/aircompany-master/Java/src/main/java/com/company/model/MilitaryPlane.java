@@ -1,12 +1,10 @@
-package Planes;
+package com.company.model;
 
-import models.MilitaryType;
-
-import java.util.Objects;
+import com.company.model.classification.MilitaryType;
 
 public class MilitaryPlane extends Plane{
 
-    private MilitaryType type;
+    private final MilitaryType type;
 
     public MilitaryPlane(
             String model,
@@ -24,16 +22,9 @@ public class MilitaryPlane extends Plane{
     }
 
     @Override
-    public String toString() {
-        return super.toString().replace("}",
-                ", type=" + getType() +
-                '}');
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof MilitaryPlane)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         MilitaryPlane that = (MilitaryPlane) o;
         return type == that.type;
@@ -41,6 +32,17 @@ public class MilitaryPlane extends Plane{
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), type);
+        int result = super.hashCode();
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder stringBuilder = new StringBuilder("MilitaryPlane{");
+        stringBuilder.append(super.toString());
+        stringBuilder.append("type=").append(type);
+        stringBuilder.append('}');
+        return stringBuilder.toString();
     }
 }

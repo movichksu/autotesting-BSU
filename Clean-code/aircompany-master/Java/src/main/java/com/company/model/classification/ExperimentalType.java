@@ -1,4 +1,4 @@
-package models;
+package com.company.model.classification;
 
 public enum ExperimentalType {
     LIFTING_BODY,
