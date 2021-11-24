@@ -4,7 +4,6 @@ import com.company.model.classification.MilitaryType;
 import com.company.model.MilitaryPlane;
 import com.company.model.PassengerPlane;
 import com.company.model.Plane;
-
 import java.util.Arrays;
 import java.util.List;
 

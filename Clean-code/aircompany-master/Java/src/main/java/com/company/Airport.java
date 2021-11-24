@@ -5,7 +5,6 @@ import com.company.model.classification.MilitaryType;
 import com.company.model.MilitaryPlane;
 import com.company.model.PassengerPlane;
 import com.company.model.Plane;
-
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,12 +29,6 @@ public class Airport {
                 .filter(plane -> plane instanceof MilitaryPlane)
                 .map(plane -> (MilitaryPlane) plane)
                 .collect(Collectors.toList());
-    }
-
-    public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
-        return getPassengerPlanes().stream()
-                .max(Comparator.comparing(PassengerPlane::getPassengersCapacity))
-                .orElse(null);
     }
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
@@ -73,6 +66,24 @@ public class Airport {
         return planes.stream()
                 .sorted(Comparator.comparing(Plane::getMaxLoadCapacity))
                 .collect(Collectors.toList());
+    }
+
+    public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
+        return getPassengerPlanes().stream()
+                .max(Comparator.comparing(PassengerPlane::getPassengersCapacity))
+                .orElse(null);
+    }
+
+    public Plane getPlaneWithMaxSpeed() {
+        return getPassengerPlanes().stream()
+                .max(Comparator.comparing(Plane::getMaxSpeed))
+                .orElse(null);
+    }
+
+    public Plane getPlaneWithMaxFlightDistance() {
+        return getPassengerPlanes().stream()
+                .max(Comparator.comparing(Plane::getMaxFlightDistance))
+                .orElse(null);
     }
 
     public List<? extends Plane> getPlanes() {
