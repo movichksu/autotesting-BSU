@@ -7,7 +7,7 @@ import java.util.stream.Stream
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-internal class TriangleTest {
+class TriangleTest {
 
     private val triangleUtil = Triangle()
 
