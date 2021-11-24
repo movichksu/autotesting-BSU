@@ -35,8 +35,6 @@ public class AirportTest {
     private Airport airport = new Airport(planes);
 
     private static PassengerPlane PASSENGER_PLANE_WITH_MAX_PASSENGER_CAPACITY  = (PassengerPlane) planes.get(2);
-    private static Plane PLANE_WITH_MAX_SPEED  = planes.get(12);
-    private static Plane PLANE_WITH_MAX_FLIGHT_DISTANCE  = planes.get(9);
 
     @Test
     public void hasPlanesTest() {
@@ -73,22 +71,6 @@ public class AirportTest {
         Assert.assertEquals(
                 new Airport(planes).getPassengerPlaneWithMaxPassengersCapacity(),
                 PASSENGER_PLANE_WITH_MAX_PASSENGER_CAPACITY
-        );
-    }
-
-    @Test
-    public void getPlaneWithMaxSpeedTest() {
-        Assert.assertEquals(
-                new Airport(planes).getPlaneWithMaxSpeed(),
-                PLANE_WITH_MAX_SPEED
-        );
-    }
-
-    @Test
-    public void getPlaneWithMaxFlightDistanceTest() {
-        Assert.assertEquals(
-                new Airport(planes).getPlaneWithMaxFlightDistance(),
-                PLANE_WITH_MAX_FLIGHT_DISTANCE
         );
     }
 }

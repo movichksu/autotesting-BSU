@@ -74,18 +74,6 @@ public class Airport {
                 .orElse(null);
     }
 
-    public Plane getPlaneWithMaxSpeed() {
-        return getPassengerPlanes().stream()
-                .max(Comparator.comparing(Plane::getMaxSpeed))
-                .orElse(null);
-    }
-
-    public Plane getPlaneWithMaxFlightDistance() {
-        return getPassengerPlanes().stream()
-                .max(Comparator.comparing(Plane::getMaxFlightDistance))
-                .orElse(null);
-    }
-
     public List<? extends Plane> getPlanes() {
         return planes;
     }
