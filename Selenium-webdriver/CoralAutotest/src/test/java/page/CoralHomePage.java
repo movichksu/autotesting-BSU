@@ -10,13 +10,9 @@ public class CoralHomePage {
     private WebDriver driver;
     private static final String HOMEPAGE_URL = "https://www.coral.by/";
 
-    private By searchButton = By.xpath("//*[@id=\"searchtour\"]");
+    private By searchButton = By.xpath("//*[@id=\"searchtour\" and @class='btn search-panel_action-btn __orange']");
 
     private By errorPopupText = By.xpath("//div[@class='fastsearchinfo-popup_success-text'] ");
-
-    private By datePicker = By.xpath("//i[@class='search-panel_calendar-icon datepick-trigger'] ");
-    private By readyPickerButton = By.xpath("//a[text()='Готово'] ");
-    private By selectDate = By.xpath("/html/body/div[2]/div/div[1]/div[2]/table/tbody/tr[3]/td[5]");
 
     public CoralHomePage(WebDriver driver) {
         this.driver = driver;
@@ -27,27 +23,19 @@ public class CoralHomePage {
         return this;
     }
 
-    public CoralHomePage openDatePickerAndSelectDate() {
-        findElementAndClick(datePicker);
-        findElementAndClick(selectDate);
-        findElementAndClick(readyPickerButton);
-        return this;
-    }
-
     public String getErrorText() {
-        return findElementAndClick(errorPopupText).getText();
+        return findElement(errorPopupText).getText();
     }
 
     public CoralHomePage search() {
-        findElementAndClick(searchButton);
+        findElement(searchButton).click();
         return this;
     }
 
-    public WebElement findElementAndClick(By locator) {
+    public WebElement findElement(By locator) {
         WebElement element =
                 new WebDriverWait(driver, 20)
                 .until(ExpectedConditions.presenceOfElementLocated(locator));
-        element.click();
         return element;
     }
 }

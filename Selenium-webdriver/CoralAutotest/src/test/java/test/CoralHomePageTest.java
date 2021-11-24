@@ -2,7 +2,6 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,7 +11,6 @@ import page.CoralHomePage;
 public class CoralHomePageTest {
 
     private WebDriver driver;
-    private ChromeOptions option = new ChromeOptions().setHeadless(true);
 
     @BeforeMethod(alwaysRun = true)
     public void setupBrowser() {
@@ -26,9 +24,7 @@ public class CoralHomePageTest {
         final String EXPECTED_ERROR_TEXT = "Чтобы начать поиск, введите страну, город или отель.";
         CoralHomePage homePage = new CoralHomePage(driver);
 
-        CoralHomePage resultsPage = homePage.openHomePage()
-                .openDatePickerAndSelectDate()
-                .search();
+        CoralHomePage resultsPage = homePage.openHomePage().search();
 
        Assert.assertEquals(resultsPage.getErrorText(), EXPECTED_ERROR_TEXT);
     }
