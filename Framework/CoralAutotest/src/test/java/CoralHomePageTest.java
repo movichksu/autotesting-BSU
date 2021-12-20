@@ -1,33 +1,15 @@
 import model.Currency;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.CoralHomePage;
 import page.CoralHomeResultPage;
 
-public class CoralHomePageTest {
-
-    private WebDriver driver;
+public class CoralHomePageTest extends CommonConditions {
 
     private static final String TURKEY_LOCATION = "Турция";
     private static final String EGYPT_LOCATION = "Египет";
     private static final String ARRIVE_PERIOD = "31.12";
     private static final String EMAIL = "test@gmail.com";
-
-    @BeforeMethod(alwaysRun = true)
-    public void setupBrowser() {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
-//        driver = new ChromeDriver(options);
-//        driver.manage().window().maximize();
-
-        System.setProperty("webdriver.chrome.driver", "C:\\tools\\driver\\chrome\\chromedriver96.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void callPopupWithErrorText() {
@@ -92,10 +74,5 @@ public class CoralHomePageTest {
                 resultsPage.getCountOfHotelsWithValue(model),
                 resultsPage.getCountOfHotelsWithPrice()
         );
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void tearDownBrowser() {
-      //  driver.quit();
     }
 }
