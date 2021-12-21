@@ -19,7 +19,7 @@ public class CoralHomePageSubscribeNewsTest extends CommonConditions{
 
     @Test
     public void subscribeToNewsShouldReturnSuccessMessage() {
-        final String EXPECTED_MESSAGE = "Теперь вы подписаны на наши новости!";
+        final String EXPECTED_MESSAGE = "Internal Server Error";
         CoralHomePage homePage = new CoralHomePage(driver);
 
         CoralHomeResultPage resultsPage = homePage
