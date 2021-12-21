@@ -23,7 +23,7 @@ public class CoralHomePage extends AbstractPage{
     private By selectedDate = By.xpath("//a[@href='javascript:void(0)' and text()='31'][1]");
 
     // subscribe to news
-    private By subscribeButton = By.xpath("//button[text()='Подписаться']");
+    private By subscribeButton = By.xpath("//button[@class='subscription_btn __blue disabledBtn']");
     private By emailInputField = By.xpath("//input[@class='subscription_input' and @type='email']");
     private By checkbox = By.xpath("//input[@type='checkbox']");
 
