@@ -19,7 +19,7 @@ public class CoralHomePageSubscribeNewsTest extends CommonConditions{
 
     @Test
     public void subscribeToNewsShouldReturnSuccessMessage() {
-        final String EXPECTED_MESSAGE = "Вы подписаны на новости!";
+        final String EXPECTED_MESSAGE = "Теперь вы подписаны на наши новости!";
         CoralHomePage homePage = new CoralHomePage(driver);
 
         CoralHomeResultPage resultsPage = homePage
@@ -27,7 +27,7 @@ public class CoralHomePageSubscribeNewsTest extends CommonConditions{
                 .subscribeToNews(EMAIL)
                 .clickOnSubscribeButton();
 
-        Assert.assertTrue(resultsPage.isSubscribeButtonEnabled());
         Assert.assertEquals(resultsPage.getSubscriptionResultText(), EXPECTED_MESSAGE);
+        Assert.assertTrue(resultsPage.isSubscribeButtonEnabled());
     }
 }

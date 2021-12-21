@@ -11,7 +11,7 @@ public class CoralHomeResultPage extends AbstractPage{
 
     private By searchButton = By.xpath("//button[@id=\"searchtour\"]");
 
-    private By subscribeButton = By.xpath("//button[@class='subscription_btn __blue disabledBtn']");
+    private By subscribeButton = By.xpath("//div[@class='subscription']/button");
 
     private By flightErrorInfo = By.xpath("//div[@class='search-panel_flight_info']");
 

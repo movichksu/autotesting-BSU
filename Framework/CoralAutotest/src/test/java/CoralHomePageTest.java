@@ -32,7 +32,7 @@ public class CoralHomePageTest extends CommonConditions {
                 .enterDepartureDate()
                 .enterPlaceLocation(EGYPT_LOCATION);
 
-     //   Assert.assertEquals(resultPage.getFlightInfoErrorText(), EXPECTED_ERROR_INFO_TEXT);
+        Assert.assertEquals(resultPage.getFlightInfoErrorText(), EXPECTED_ERROR_INFO_TEXT);
         Assert.assertFalse(resultPage.isSearchButtonEnabled());
     }
 }
